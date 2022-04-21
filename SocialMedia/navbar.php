@@ -58,6 +58,9 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href=".-.php">blob</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="post.php">Posts</a>
+            </li>
           </ul>
         </div>
 
