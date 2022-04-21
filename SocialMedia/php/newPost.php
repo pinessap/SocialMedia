@@ -9,7 +9,7 @@
 <?php
     if (isset($_POST['caption'])) {//When a caption is submitted
         //Variables definition
-        $file_path = (!empty($_FILES['picture']['name'])) ? "/SocialMedia1/img/".strstr($_FILES["picture"]["name"], ".".pathinfo($_FILES["picture"]["name"], PATHINFO_EXTENSION), true)."_t.jpg" : NULL;
+        $file_path = (!empty($_FILES['picture']['name'])) ? "/SocialMedia/img/".strstr($_FILES["picture"]["name"], ".".pathinfo($_FILES["picture"]["name"], PATHINFO_EXTENSION), true)."_t.jpg" : NULL;
         $caption = $_POST['caption'];
         $uid = $_SESSION['id'];
 
