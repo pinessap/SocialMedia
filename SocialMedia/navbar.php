@@ -13,6 +13,8 @@
       <link rel="stylesheet" href="CSS\style.css"/>
       <script src="../js/bootstrap.bundle.js"></script>
       <script src="../js/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
       <title>Header</title>
  </head>
  
@@ -53,7 +55,7 @@
             </ul>
         <!-- FORE USERS -->
         <?php } else { ?>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" id="navbarNavDropdown">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="post.php">Posts</a>
@@ -65,12 +67,20 @@
         </div>
 
           <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Profile
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="profile.php?mypage">Own Page</a></li>
+              <li><a class="dropdown-item" href="profile.php?edit">Settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="php\logout.php">Logout</a></li>
+            </ul>
+          </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" name="profile-submit" href="profile.php">Profile</a>
+              <a class="nav-link active" aria-current="page" name="logout-submit" href="#">         </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" name="logout-submit" href="php\logout.php">Logout</a>
-              </li>
             </ul>
             <?php } ?>      
       </div>
