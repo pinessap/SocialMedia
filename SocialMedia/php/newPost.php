@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <?php
     $title = 'New Post';
-    require '../db_conn.php';
-    require 'function.php';
-    include "../navbar.php";
+    require 'db_conn.php';
+    require 'php/function.php';
+    //include "../navbar.php";
 ?>
 
 <?php
@@ -80,17 +80,17 @@
                             <input class="form-control" type="file" name="picture" id="picture">
                         </div>
                     </div>
-                    <a href="../post.php" class="submit-btn">Go Back</a>
+                     <!--<a href="../post.php" class="submit-btn">Go Back</a>-->
                     <input type="submit" class="submit-btn" name="upload" id="upload" value="Submit">
                 </form>
 
                 <?php } else if ($ok) { ?>
                     <h1>Post was added succesfully!</h1>              
-                    <a href="../post.php" class="submit-btn">Go Back</a>
+                    <!--<a href="../post.php" class="submit-btn">Go Back</a>-->
                 <?php } else { ?>
                     <h1>Something went wrong!</h1>
                     <br>
-                    <a href="../post.php" class="submit-btn">Go Back</a>
+                    <!--<a href="../post.php" class="submit-btn">Go Back</a>-->
                     <br>
                     <h1> </h1>
                 <?php } ?>
