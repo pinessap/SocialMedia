@@ -112,8 +112,8 @@
                 }
             }
             else{
-                header ("Location: profile.php?error=edit");
-                die();
+                //header ("Location: profile.php?error=edit");
+                //die();
 
             }
         }
@@ -142,7 +142,7 @@
     <br>
 
     <div class="container">
-                <h3>Daten </h3>
+                <h3>Change Information</h3>
                 <div class="form">
                     <form action="" method="POST">
                         <table class="table table-bordered">
