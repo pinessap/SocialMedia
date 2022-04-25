@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <?php
     $title = 'View Posts'; 
-    require '../db_conn.php';
-    include "../navbar.php"; 
+    require 'db_conn.php';
+    //include "../navbar.php"; 
+
+    $userid = $_SESSION['id'];
 ?>
     <body>
         <div class="container">
                 <?php
                     //Selects the information from the database for the table
-                    $sql = "SELECT post_id, file_path, caption, `datetime` FROM posts";
+                    $sql = "SELECT post_id, file_path, caption, `datetime` FROM posts WHERE uid=$userid";
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
                     $stmt->bind_result($post_id, $file_path, $caption, $datetime);
@@ -38,7 +40,7 @@
                     </table>     
                 </div>
                 <br>
-                <a href="../post.php" class="submit-btn">Go Back</a>
+                <!--<a href="../post.php" class="submit-btn">Go Back</a>-->
                 <br>
                 <h1> </h1>
         </div>
