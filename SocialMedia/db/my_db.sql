@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2022 at 12:16 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Erstellungszeit: 04. Mai 2022 um 18:52
+-- Server-Version: 10.4.24-MariaDB
+-- PHP-Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,26 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `my_db`
+-- Datenbank: `my_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pictures`
+-- Tabellenstruktur für Tabelle `friends`
+--
+
+CREATE TABLE `friends` (
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `fid` int(11) NOT NULL,
+  `accepted` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `pictures`
 --
 
 CREATE TABLE `pictures` (
@@ -34,7 +47,7 @@ CREATE TABLE `pictures` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pictures`
+-- Daten für Tabelle `pictures`
 --
 
 INSERT INTO `pictures` (`picture_id`, `picture_path`, `post_id`) VALUES
@@ -46,7 +59,7 @@ INSERT INTO `pictures` (`picture_id`, `picture_path`, `post_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posts`
+-- Tabellenstruktur für Tabelle `posts`
 --
 
 CREATE TABLE `posts` (
@@ -58,7 +71,7 @@ CREATE TABLE `posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `posts`
+-- Daten für Tabelle `posts`
 --
 
 INSERT INTO `posts` (`post_id`, `caption`, `file_path`, `uid`, `datetime`) VALUES
@@ -71,7 +84,7 @@ INSERT INTO `posts` (`post_id`, `caption`, `file_path`, `uid`, `datetime`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tabellenstruktur für Tabelle `users`
 --
 
 CREATE TABLE `users` (
@@ -87,7 +100,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Daten für Tabelle `users`
 --
 
 INSERT INTO `users` (`id`, `salutation`, `email`, `username`, `password`, `name`, `surname`, `role`, `activity`) VALUES
@@ -97,63 +110,84 @@ INSERT INTO `users` (`id`, `salutation`, `email`, `username`, `password`, `name`
 (17, 'Mr', 'max@muster.com', 'max', '74cd18c016d902f940554dfd07545f219064b27fe6e890e9447f0c9e377903a8', 'max', 'mustermann', 'user', 1);
 
 --
--- Indexes for dumped tables
+-- Indizes der exportierten Tabellen
 --
 
 --
--- Indexes for table `pictures`
+-- Indizes für die Tabelle `friends`
+--
+ALTER TABLE `friends`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `userConst` (`uid`),
+  ADD KEY `friendConst` (`fid`);
+
+--
+-- Indizes für die Tabelle `pictures`
 --
 ALTER TABLE `pictures`
   ADD PRIMARY KEY (`picture_id`),
   ADD KEY `post_id` (`post_id`);
 
 --
--- Indexes for table `posts`
+-- Indizes für die Tabelle `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`post_id`),
   ADD KEY `user_id` (`uid`);
 
 --
--- Indexes for table `users`
+-- Indizes für die Tabelle `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT für exportierte Tabellen
 --
 
 --
--- AUTO_INCREMENT for table `pictures`
+-- AUTO_INCREMENT für Tabelle `friends`
+--
+ALTER TABLE `friends`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `pictures`
 --
 ALTER TABLE `pictures`
   MODIFY `picture_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `posts`
+-- AUTO_INCREMENT für Tabelle `posts`
 --
 ALTER TABLE `posts`
   MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- Constraints for dumped tables
+-- Constraints der exportierten Tabellen
 --
 
 --
--- Constraints for table `pictures`
+-- Constraints der Tabelle `friends`
+--
+ALTER TABLE `friends`
+  ADD CONSTRAINT `friendConst` FOREIGN KEY (`fid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `userConst` FOREIGN KEY (`uid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints der Tabelle `pictures`
 --
 ALTER TABLE `pictures`
   ADD CONSTRAINT `pictures_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `posts`
+-- Constraints der Tabelle `posts`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
