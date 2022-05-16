@@ -40,5 +40,5 @@ function loadPosts() {
             //showError('an unknown error occurred while trying to fetch the feed: ' + xhr.status);
 
         }
-}); 
+    }); 
 }

@@ -4,6 +4,8 @@ include("businesslogic/simpleLogic.php");
 $param = "";        
 $method = "";
 
+$uid = "";
+$fid = "";
 
 
 isset($_GET["method"]) ? $method = $_GET["method"] : false;     //request parameter werden geprüft, Übermitteln der Daten an das Service Handling welches den Response durchführt

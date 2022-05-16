@@ -15,6 +15,33 @@ class SimpleLogic                       //Business Logik entscheidet (anhand Par
             case "queryPosts":
                 $res = $this->dh->queryPosts($param);
                 break;
+            case "queryRequests":
+                $res = $this->dh->queryRequests($param);
+                break;
+            case "deleteFriend":
+                $res = $this->dh->deleteFriend($param);
+                break;
+            case "acceptFriend":
+                $res = $this->dh->acceptFriend($param);
+                 break;
+            case "queryFriends":
+                $res = $this->dh->queryFriends($param);
+                break;
+            case "queryUsername":
+                $res = $this->dh->queryUsername($param);
+                break;
+            case "checkFriend":
+                $res = $this->dh->checkFriend($param);
+                break;
+            case "getID":
+                $res = $this->dh->getID($param);
+                break;
+            case "sendRequest":
+                $res = $this->dh->sendRequest($param);
+                break;
+            case "getProfile":
+                $res = $this->dh->getProfile($param);
+                break;
             default:
                 $res = null;
                 break;

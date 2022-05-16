@@ -31,7 +31,7 @@
             <?php } ?>
           </li>
         </ul>
-        <!-- For Admin -->
+        <!-- For logged in user -->
 	      <?php if (isset($_SESSION['username']) && isset($_SESSION['id'])) {?>
           <!--<div class="collapse navbar-collapse" id="navbarSupportedContent" id="navbarNavDropdown">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -40,6 +40,18 @@
               </li>
             </ul>
           </div>-->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent" id="navbarNavDropdown">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+              <?php if ($page == 'index'){ ?>
+                  <a class="nav-link active" aria-current="page" href="php/friends.php">Friends</a>
+                <?php } else { ?>
+                   <a class="nav-link active" aria-current="page" href="">Friends</a>
+                  <?php } ?>
+                
+              </li>
+            </ul>
+          </div>
 
             <ul class="nav navbar-nav navbar-right">
             <li class="nav-item dropdown">
@@ -47,10 +59,24 @@
                 Profile
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <?php if ($page == 'index'){ ?>
                 <li><a class="dropdown-item" href="php/profile.php?mypage">Own Page</a></li>
+                <?php } else { ?>
+                  <li><a class="dropdown-item" href="profile.php?mypage">Own Page</a></li>
+                  <?php } ?>
+              <?php if ($page == 'index'){ ?>
                 <li><a class="dropdown-item" href="php/profile.php?edit">Settings</a></li>
+                <?php } else { ?>
+                  <li><a class="dropdown-item" href="profile.php?edit">Settings</a></li>
+                  <?php } ?>
+                
+                
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="php/logout.php">Logout</a></li>
+                <?php if ($page == 'index'){ ?>
+                  <li><a class="dropdown-item" href="php/logout.php">Logout</a></li>
+                <?php } else { ?>
+                  <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                  <?php } ?>
               </ul>
             </li>
               <li class="nav-item">
