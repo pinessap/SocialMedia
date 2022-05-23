@@ -1,14 +1,17 @@
+<?php 
+    include 'header.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <!--<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous"></script>
-    <script src="../js/myscript.js" type="text/javascript"></script>
+    -->
     <link rel="stylesheet" href="../css/style.css"/>
     <title>Register</title>
 </head>
@@ -16,9 +19,10 @@
 	<section class="container">
         
         <div class="register">
-            <h1>Register</h1>
+            <h1>Register</h1>   
             <?php
-                if(isset($_GET["error"])) {
+                if(isset($_GET["error"])) {?>
+                <div class="alert alert-danger" role="alert"><?php
                     if ($_GET["error"] == "emptyinput") {
                         echo '<p>Fill in all the fields!</p>'; 
                     }
@@ -42,7 +46,8 @@
                     }
                     else if ($_GET["error"] == "none") {
                         echo '<p>Registered successful!</p>'; 
-                    }
+                    } 
+                ?></div><?php
                 }
             ?>
         <form action="log_reg/manageRegister.php" method="post">

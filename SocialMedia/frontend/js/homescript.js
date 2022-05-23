@@ -28,7 +28,7 @@ function loadPosts() {
 
                     var filepath = convertFilepath(p.file_path);
 
-                    event_data += '<div class="homepost" id="'+ p.id +'">'+p.username+' | '+p.datetime+'<br><br>';
+                    event_data += '<div class="homepost" id="'+ p.id +'"><a class="friendlink" href="php/showUser.php?username='+p.username+'">'+p.username+'</a> | '+p.datetime+'<br><br>';
                     event_data += '<img src="'+filepath+'">';
                     event_data += '<hr>';
             });

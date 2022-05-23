@@ -29,7 +29,7 @@
         $page="index";
         $_SESSION['page'] = $page;
         if($login == 1){
-            include 'php/navbar.php';
+            //include 'php/navbar.php';
             include 'php/home.php';
         } else{
             include 'php/login.php';

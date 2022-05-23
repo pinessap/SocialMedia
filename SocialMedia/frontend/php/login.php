@@ -1,7 +1,6 @@
 <?php 
 //require 'navbar.php';
 ?> 
-
 <!--<body>-->
 	<section class="container">
 	<form action="php/log_reg/loginfunction.php" method="post">

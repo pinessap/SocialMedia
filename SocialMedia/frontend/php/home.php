@@ -13,7 +13,7 @@
 <body>
     
     <?php
-       // include 'navbar.php';
+        include 'navbar.php';
         include 'profile/newPost.php';
         $session_uid = $_SESSION['id'];
     ?>

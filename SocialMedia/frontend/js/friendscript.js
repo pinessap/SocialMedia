@@ -41,8 +41,7 @@ function loadRequests() {
                 } else{
                     $.each(response, function(i, p) {
                         //console.log(i,p.id, "," ,p.username);
-        
-                        event_data += '<div class="fr_req" id="'+ p.id +'">'+p.username+' <button class="btn btn-light" type="button" onClick="acceptFriend('+p.id+')">accept</button> <button class="btn btn-light" type="button" onClick="deleteFriend('+p.id+')">reject</button></div>';
+                        event_data += '<div class="fr_req" id="'+ p.id +'"><a class="friendlink" href="showUser.php?username='+p.username+'">'+p.username+'</a><button class="btn btn-light" type="button" onClick="acceptFriend('+p.id+')">accept</button> <button class="btn btn-light" type="button" onClick="deleteFriend('+p.id+')">reject</button></div>';
                     });
                 }
     
@@ -156,7 +155,7 @@ function loadFriends() {
                     $.each(response, function(i, p) {
                         //console.log(i,p.id, "," ,p.username);
         
-                        event_data += '<div class="show_fr" id="'+ p.id +'">'+p.username+' <button class="btn btn-light" type="button" onClick="deleteFriend('+p.id+')">remove friend</button></div>';
+                        event_data += '<div class="show_fr" id="'+ p.id +'"><a class="friendlink" href="showUser.php?username='+p.username+'">'+p.username+'</a><button class="btn btn-light" type="button" onClick="deleteFriend('+p.id+')">remove friend</button></div>';
                     });
                 }
 
@@ -214,7 +213,7 @@ function searchUser() {
                         $.each(response, function(i, p) {
                             //console.log(i,p.id, "," ,p.username);
                             
-                            event_data += '<div class="sr_uname" id="'+ p.id +'"><a href="showUser.php?username='+p.username+'">'+p.username+'</a></div>';
+                            event_data += '<div class="sr_uname" id="'+ p.id +'"><a class="friendlink" href="showUser.php?username='+p.username+'">'+p.username+'</a></div>';
                         });
                     }
         

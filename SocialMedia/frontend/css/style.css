@@ -51,8 +51,8 @@
     box-sizing: border-box;
   }
   
-  /* Set a style for all buttons */
-  button {
+  /* Set a style for all buttons except navbar button*/
+  button{
     background-color: #04AA6D;
     color: white;
     padding: 12px 20px;
@@ -70,7 +70,7 @@
   }
 
   /* Add a hover effect for buttons */
-  button:hover {
+  button:hover:not(.navbar-toggler) {
     opacity: 0.8;
   }
   
